@@ -1,0 +1,45 @@
+.nav {
+  width: auto;
+  height: 150px;
+}
+.rightNav {
+  float: right;
+  margin-right: 50px;
+  margin-top: 10px;
+}
+
+.connectButtonContainer {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.buttonContainer {
+  background-color: #fff;
+  border-radius: 16px;
+  display: inline-block;
+}
+
+.connectButton {
+  background-color: rgb(253, 234, 241) !important;
+  border-radius: 16px !important;
+  border: 1px solid #fff !important;
+  color: rgb(213, 0, 102) !important;
+  width: 100%;
+  height: auto;
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+}
+
+.connectButton:hover {
+  border-color: rgb(213, 0, 102) !important;
+}
+
+.btn {
+  margin-right: 50px;
+  cursor: pointer;
+}
+
+.pageButtonBold {
+  font-weight: 700;
+}
