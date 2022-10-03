@@ -26,6 +26,45 @@ function App() {
     }
   },[])
 
+  const switchNetwork = useCallback(async () => {
+    try {
+      await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: "0x13881" }],
+      });
+
+      await getMetamaskData();
+    } catch (switchError) {
+      if (switchError.code === 4902) {
+        try {
+          await window.ethereum.request({
+            method: 'wallet_addEthereumChain',
+            params: [
+              {
+                chainId: "0x13881",
+                chainName: 'Matic Mumbai',
+                nativeCurrency: {
+                  name:"MATIC",
+                  symbol:"MATIC",
+                  decimals: 18
+                },
+                rpcUrls: ['https://rpc-mumbai.maticvigil.com/'],
+                blockExplorerUrls: ['https://mumbai.ploygonscan.com']
+              },
+            ],
+          });
+
+          await getMetamaskData();
+        } catch (addError) {
+          // handle "add" error
+          console.log(addError);
+        }
+      }
+      // handle other "switch" errors
+      console.log(switchError);
+    }
+  })
+
   const getMetamaskData = async () => {
     const _provider = await getProvider();
     const _signer = await getSigner(_provider);
@@ -67,6 +106,7 @@ function App() {
               walletAddress={walletAddress}
               currentBalance={currentBalance}
               chainId={chainId}
+              switchNetwork={switchNetwork}
             />
           </div>
         </div>
