@@ -4,7 +4,6 @@ const chainIds = {
     4 : {name : "Rinkeby", symbol : "RinkebyETH"},
     5 : {name : "Goerli", symbol : "GoerliETH"},
     42 : {name : "Kovan", symbol : "KovanETH"},
-    11155111 : {name : "Sepolia", symbol : "SepoliaETH"},
     56 : {name : "Binance Smart Chain Mainnet", symbol : "BNB"},
     97 : {name : "Binance Smart Chain Testnet", symbol : "tBNB"},
     43114 : {name : "Avalanche C-Chain", symbol : "AVAX"},
